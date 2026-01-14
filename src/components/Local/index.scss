@@ -1,101 +1,85 @@
-$color-primary: #9b51b6;
-$color-dark: #1a1a1a;
-$color-bg-soft: #fcfaf8;
-$font-serif: 'DM Serif Display', serif;
-$transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+@use '../../styles/variables' as v;
+
+$p-primary: v.$color-primary;
+$p-dark: v.$color-dark;
+$p-cream: v.$color-bg-cream;
+$font-serif: v.$font-serif;
 
 .location {
-  padding: 140px 6%;
-  background-color: white;
-  position: relative;
+  padding: clamp(80px, 10vw, 140px) 6%;
+  background-color: #ffffff;
 
   &__container {
-    max-width: 1400px;
+    max-width: 1300px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 100px;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
     align-items: center;
 
     @media (max-width: 1100px) {
       grid-template-columns: 1fr;
-      gap: 60px;
     }
   }
 
   &__tag {
     text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 0.7rem;
+    letter-spacing: 5px;
+    font-size: 0.75rem;
     font-weight: 800;
-    color: $color-primary;
-    margin-bottom: 20px;
+    color: $p-primary;
+    margin-bottom: 15px;
     display: block;
   }
 
   &__title {
     font-family: $font-serif;
-    font-size: clamp(2.8rem, 5vw, 4rem);
-    color: $color-dark;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: $p-dark;
     line-height: 1.1;
-    margin-bottom: 50px;
-    span { font-style: italic; color: rgba($color-dark, 0.3); }
+    margin-bottom: 25px;
+    span { font-weight: 300; color: rgba($p-dark, 0.2); }
   }
 
-  &__cards {
+  &__subtitle {
+    font-size: 1.1rem;
+    color: rgba($p-dark, 0.6);
+    font-weight: 300;
+    max-width: 400px;
+    margin-bottom: 50px;
+  }
+
+  &__details {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    margin-bottom: 50px;
+    gap: 40px;
+    margin-bottom: 60px;
   }
 
-  &__card {
+  &__item {
     display: flex;
-    gap: 25px;
-    padding: 25px;
-    background: $color-bg-soft;
-    border-radius: 25px;
-    transition: $transition;
-    border: 1px solid transparent;
-
-    &:hover {
-      background: white;
-      border-color: rgba($color-primary, 0.15);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-      transform: translateX(10px);
-
-      .location__icon-wrapper {
-        background: $color-primary;
-        color: white;
-      }
+    gap: 20px;
+    align-items: flex-start;
+    
+    .location__icon {
+      font-size: 1.4rem;
+      color: $p-primary;
+      margin-top: 3px;
     }
-  }
 
-  &__icon-wrapper {
-    width: 54px;
-    height: 54px;
-    background: white;
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    color: $color-primary;
-    transition: $transition;
-    flex-shrink: 0;
-  }
-
-  &__info-text {
     h4 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: $color-dark;
-      margin-bottom: 5px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba($p-dark, 0.4);
+      margin-bottom: 8px;
     }
+
     p {
-      color: rgba($color-dark, 0.6);
-      line-height: 1.6;
-      font-weight: 300;
+      color: $p-dark;
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.5;
     }
   }
 
@@ -103,53 +87,57 @@ $transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     display: inline-flex;
     align-items: center;
     gap: 15px;
-    padding: 22px 45px;
-    background: $color-dark;
-    color: white;
+    color: $p-dark;
     text-decoration: none;
-    border-radius: 100px;
     font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
     font-size: 0.9rem;
-    transition: $transition;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid $p-primary;
+    transition: v.$transition;
 
     &:hover {
-      background: $color-primary;
-      box-shadow: 0 15px 30px rgba($color-primary, 0.25);
-      transform: translateY(-5px);
+      color: $p-primary;
+      gap: 25px;
     }
   }
 
-  &__map-container {
+  &__visual {
     position: relative;
-    height: 600px;
+    height: 650px;
     
-    @media (max-width: 768px) { height: 400px; }
+    @media (max-width: 768px) { height: 450px; }
   }
 
   &__map-frame {
     width: 100%;
     height: 100%;
-    border-radius: 50px;
     overflow: hidden;
     position: relative;
     z-index: 2;
-    box-shadow: 0 50px 100px rgba(0,0,0,0.1);
-    // Filtro para o mapa ficar mais elegante e combinar com a paleta
+    // Moldura reta (Luxo) em vez de redonda
+    border: 1px solid rgba($p-dark, 0.1);
+
     iframe {
-      filter: grayscale(0.2) contrast(1.1);
+      filter: grayscale(1) contrast(1.2) opacity(0.8);
+      transition: v.$transition;
+      
+      &:hover {
+        filter: grayscale(0) contrast(1);
+        opacity: 1;
+      }
     }
   }
 
-  &__map-decoration {
+  &__map-overlay {
     position: absolute;
-    top: -30px;
+    top: 30px;
+    left: 30px;
     right: -30px;
-    width: 300px;
-    height: 300px;
-    background: $color-bg-soft;
-    border-radius: 50%;
+    bottom: -30px;
+    background: $p-cream;
     z-index: 1;
+    // Alinha com o estilo geométrico do CTA e Especialidades
   }
 }

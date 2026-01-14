@@ -1,145 +1,130 @@
-$color-primary: #9b51b6;
-$color-primary-dark: #7a3e91;
-$font-serif: 'DM Serif Display', serif;
-$transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+@use '../../styles/variables' as v;
+
+// Mapeamento das suas variáveis reais
+$p-primary: v.$color-primary;
+$p-dark: v.$color-dark;
+$p-cream: v.$color-bg-cream;
+$font-serif: v.$font-serif;
 
 .cta-final {
-  padding: 120px 6%;
-  background-color: white;
+  padding: clamp(80px, 12vw, 160px) 6%;
+  background-color: #ffffff;
 
   &__container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
   }
 
   &__box {
-    background: radial-gradient(circle at top left, $color-primary 0%, $color-primary-dark 100%);
-    padding: 100px 40px;
-    border-radius: 80px;
-    text-align: center;
-    color: white;
+    background: $p-dark; // Uso do tom escuro para contraste máximo e autoridade
+    padding: clamp(60px, 8vw, 120px) 40px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 40px 100px rgba($color-primary, 0.25);
+    
+    // Forma Geométrica: Fugindo do arredondado simples
+    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+    
+    @media (max-width: 768px) {
+      clip-path: none;
+      border-radius: 40px;
+    }
   }
 
-  // Círculos Decorativos (Efeito de profundidade)
-  &__circle {
+  // Formas abstratas em roxo para profundidade
+  &__shape {
     position: absolute;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
+    background: $p-primary;
+    opacity: 0.15;
+    filter: blur(80px);
     pointer-events: none;
+    border-radius: 50%;
 
     &--1 {
-      width: 400px;
-      height: 400px;
-      top: -200px;
+      width: 500px;
+      height: 500px;
+      top: -250px;
       right: -100px;
     }
 
     &--2 {
-      width: 300px;
-      height: 300px;
-      bottom: -150px;
-      left: -50px;
+      width: 400px;
+      height: 400px;
+      bottom: -200px;
+      left: -100px;
     }
   }
 
   &__content {
     position: relative;
     z-index: 2;
+    text-align: center;
+    color: white;
   }
 
-  &__icon {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    opacity: 0.5;
-    animation: float 4s ease-in-out infinite;
+  &__badge {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: $p-primary;
   }
 
   &__title {
     font-family: $font-serif;
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    margin-bottom: 25px;
-    line-height: 1.05;
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    margin-bottom: 30px;
+    line-height: 1;
 
     span {
+      font-weight: 300;
+      opacity: 0.6;
       font-style: italic;
-      display: block;
-      font-weight: 400;
-      opacity: 0.85;
     }
   }
 
   &__text {
-    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    font-size: clamp(1.1rem, 1.5vw, 1.25rem);
     margin-bottom: 50px;
     opacity: 0.8;
     font-weight: 300;
-    max-width: 700px;
+    max-width: 750px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
   }
 
   &__btn {
     display: inline-flex;
     align-items: center;
     gap: 15px;
-    background: white;
-    color: $color-primary;
-    padding: 24px 60px;
-    border-radius: 100px;
+    background: $p-primary; // Botão roxo sobre o fundo escuro
+    color: white;
+    padding: 22px 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: $transition;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    letter-spacing: 3px;
+    transition: v.$transition;
+    
+    // Botão com corte reto (estilo luxo)
+    border: 1px solid transparent;
 
-    .btn-icon {
-      font-size: 1.4rem;
+    svg {
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
     }
 
     &:hover {
+      background: transparent;
+      border-color: white;
       transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      color: $color-primary-dark;
-      background: #fdfaf6;
-    }
 
-    &:active {
-      transform: translateY(0);
-    }
-  }
-
-  &__footer-text {
-    margin-top: 30px;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.6;
-    font-weight: 600;
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-@media (max-width: 768px) {
-  .cta-final {
-    padding: 60px 4%;
-    &__box {
-      padding: 60px 20px;
-      border-radius: 40px;
-    }
-    &__btn {
-      padding: 20px 30px;
-      font-size: 0.9rem;
-      width: 100%;
-      justify-content: center;
+      svg {
+        transform: translateX(8px);
+      }
     }
   }
 }

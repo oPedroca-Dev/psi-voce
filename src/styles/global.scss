@@ -1,0 +1,34 @@
+@import './variables';
+
+* { margin: 0; padding: 0; box-box: border-box; }
+
+body {
+  font-family: $font-sans;
+  background-color: $color-bg-light;
+  color: $color-dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: $font-serif; }
+
+// Classe utilitária para "ornar" as dobras
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+  
+  .tag {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: $color-primary;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    span { font-style: italic; color: rgba($color-dark, 0.3); }
+  }
+}

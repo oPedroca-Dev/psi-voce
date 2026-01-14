@@ -2,54 +2,48 @@ import './index.scss';
 
 export default function Concept() {
   return (
-    <section className="concept">
+    <section id="conceito" className="concept">
       <div className="concept__container">
+        
+        <div className="concept__content">
+          <span className="concept__overline">Institucional</span>
+          <h2 className="concept__title">
+            Excelência em <br /> 
+            <span className="concept__title--highlight">Saúde Integrativa</span>
+          </h2>
+          
+          <div className="concept__text">
+            <p>
+              O Instituto Psi & Você redefine o cuidado com o bem-estar através de uma abordagem clínica rigorosa e humanizada. Unimos a ciência da mente à vitalidade do corpo em um ambiente planejado para a sua evolução plena.
+            </p>
+          </div>
+
+          <div className="concept__stats">
+            <div className="concept__stat-item">
+              <span className="number">10+</span>
+              <p>Anos de <br/>Experiência</p>
+            </div>
+            <div className="concept__stat-item">
+              <span className="number">2k+</span>
+              <p>Vidas <br/>Transformadas</p>
+            </div>
+          </div>
+        </div>
+
         <div className="concept__visual">
           <div className="concept__image-wrapper">
             <img 
-              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1520&auto=format&fit=crop" 
-              alt="Mulher praticando meditação e bem-estar" 
-              className="concept__img"
+              src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?q=80&w=1470&auto=format&fit=crop" 
+              alt="Ambiente de acolhimento profissional" 
             />
-            {/* Selo de qualidade flutuante */}
-            <div className="concept__experience">
-              <span className="years">+10</span>
-              <span className="text">Anos de <br/> Experiência</span>
-            </div>
           </div>
-          {/* Elementos decorativos geométricos */}
-          <div className="concept__shape"></div>
-        </div>
-
-        <div className="concept__content">
-          <span className="concept__tag">Essência do Instituto</span>
-          <h2 className="concept__title">
-            Saúde Integrativa: <br />
-            <span className="concept__title--light">Onde tudo se conecta.</span>
-          </h2>
-          
-          <p className="concept__description">
-            Entendemos que o corpo manifesta o que a mente silencia. No Instituto Psi & Você, não olhamos apenas para o sintoma, mas para o <strong>ser humano integral</strong>. 
-          </p>
-
-          <div className="concept__features">
-            <div className="concept__item">
-              <div className="concept__number">01</div>
-              <div className="concept__info">
-                <h4>Cuidado Humanizado</h4>
-                <p>Protocolos personalizados que respeitam seu tempo e sua história individual.</p>
-              </div>
-            </div>
-
-            <div className="concept__item">
-              <div className="concept__number">02</div>
-              <div className="concept__info">
-                <h4>Ambiente Refúgio</h4>
-                <p>Um espaço projetado para oferecer conforto sensorial e máxima privacidade.</p>
-              </div>
-            </div>
+          {/* Card com tom de lavanda muito suave e borda roxa fina */}
+          <div className="concept__floating-card">
+            <h4>Atendimento Premium</h4>
+            <p>Sessões individuais focadas na sua singularidade e equilíbrio.</p>
           </div>
         </div>
+
       </div>
     </section>
   );
