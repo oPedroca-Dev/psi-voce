@@ -1,0 +1,186 @@
+$color-primary: #9b51b6;
+$color-accent: #26a69a;
+$color-text: #2d2d2d;
+$color-white: white;
+$transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+$breakpoint-mobile: 992px;
+
+.header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
+  height: 115px;
+  display: flex;
+  align-items: center;
+  transition: $transition;
+  background: transparent;
+
+  &--scrolled {
+    height: 85px;
+    background: rgba($color-white, 0.9); // Um pouco mais opaco para leitura
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba($color-primary, 0.06);
+    border-bottom: 1px solid rgba($color-primary, 0.08);
+
+    .header__logo img { height: 60px; }
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $breakpoint-mobile) { padding: 0 24px; }
+  }
+
+  &__logo {
+    z-index: 1001; // Mantém a logo acima de tudo
+    img {
+      height: 90px;
+      transition: $transition;
+      filter: drop-shadow(0 5px 15px rgba($color-primary, 0.1));
+    }
+  }
+
+  &__nav {
+    @media (max-width: $breakpoint-mobile) {
+      position: fixed;
+      inset: 0;
+      background: $color-white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; // Centraliza itens no mobile
+      padding: 60px;
+      transform: translateX(100%);
+      transition: $transition;
+      z-index: 1000;
+
+      &--open { transform: translateX(0); }
+    }
+  }
+
+  &__nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    @media (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+      text-align: center;
+      gap: 3rem;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+
+    @media (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+  }
+
+  // Ajuste para que <a> e <Link> tenham o mesmo estilo
+  &__link, a.header__link {
+    text-decoration: none;
+    color: $color-text;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    transition: 0.3s;
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -6px; left: 50%;
+      width: 0; height: 2px;
+      background: $color-accent;
+      transition: 0.3s;
+      transform: translateX(-50%);
+    }
+
+    &:hover, &--active {
+      color: $color-primary;
+      &::before { width: 15px; }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 1.6rem; // Ajustado para não ficar exagerado
+      letter-spacing: 3px;
+    }
+  }
+
+  &__divider {
+    width: 1px;
+    height: 30px;
+    background: rgba($color-text, 0.1);
+    @media (max-width: $breakpoint-mobile) { display: none; }
+  }
+
+  &__btn-contact {
+    background: $color-primary;
+    color: white;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: $transition;
+    box-shadow: 0 10px 25px rgba($color-primary, 0.2);
+
+    &:hover {
+      background: $color-accent;
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba($color-accent, 0.3);
+    }
+  }
+
+  &__toggle {
+    display: none;
+    background: none; 
+    border: none;
+    font-size: 2.6rem; // Aumentado um pouco
+    color: $color-primary;
+    cursor: pointer;
+    z-index: 1100; // Maior que o nav
+    transition: 0.3s;
+    line-height: 0;
+
+    &:active { transform: scale(0.9); }
+    &--active { transform: rotate(90deg); }
+
+    @media (max-width: $breakpoint-mobile) { 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba($color-primary, 0.1);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    z-index: 999;
+    
+    &--visible { opacity: 1; visibility: visible; }
+  }
+}

@@ -1,0 +1,208 @@
+$color-primary: #9b51b6;
+$color-dark: #1a1a1a;
+$color-bg: #fdfaf6;
+$font-serif: 'DM Serif Display', serif;
+$font-sans: 'Inter', sans-serif;
+
+.professionals {
+  padding: 140px 6% 100px;
+  background-color: $color-bg;
+  position: relative;
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 100px;
+    border-bottom: 1px solid rgba($color-dark, 0.1);
+    padding-bottom: 40px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+    }
+  }
+
+  &__tag {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: $color-primary;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: $color-dark;
+    line-height: 1;
+
+    .serif { font-style: italic; color: rgba($color-dark, 0.4); }
+  }
+
+  &__stats {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    
+    .number {
+      font-family: $font-serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: $color-primary;
+    }
+
+    .text {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #888;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); // Grid de 12 colunas para assimetria
+    gap: 60px 30px;
+
+    @media (max-width: 1024px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__card {
+    grid-column: span 4; // Padrão: 3 por linha
+
+    // Efeito de escada (Assimetria Premium)
+    &:nth-child(even) { margin-top: 60px; }
+    
+    @media (max-width: 1024px) {
+      width: calc(50% - 15px);
+      margin-top: 0 !important;
+    }
+
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+
+    &:hover {
+      .professionals__image-frame img { transform: scale(1.05) rotate(1deg); }
+      .professionals__card-overlay { opacity: 1; }
+    }
+  }
+
+  &__image-area {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    background: #fff;
+    // Moldura elegante
+    padding: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.04);
+  }
+
+  &__image-frame {
+    aspect-ratio: 1/1.25;
+    overflow: hidden;
+    border-radius: 16px;
+    
+    img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%); // Toque artístico
+      transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+  }
+
+  &__card-overlay {
+    position: absolute;
+    inset: 12px;
+    background: rgba($color-dark, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.4s ease;
+    border-radius: 16px;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+
+    .social-link {
+      width: 45px; height: 45px;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 50%;
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      transition: 0.3s;
+      &:hover { background: white; color: $color-primary; }
+    }
+  }
+
+  &__btn-explore {
+    background: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex; align-items: center; gap: 10px;
+    cursor: pointer;
+    transform: translateY(20px);
+    transition: 0.4s 0.1s;
+  }
+
+  &__card:hover &__btn-explore { transform: translateY(0); }
+
+  &__role-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+  }
+
+  &__line {
+    flex: 1;
+    height: 1px;
+    background: rgba($color-primary, 0.2);
+  }
+
+  &__role {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $color-primary;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+  }
+
+  &__name {
+    font-family: $font-serif;
+    font-size: 2rem;
+    color: $color-dark;
+    margin-bottom: 8px;
+    transition: 0.3s;
+  }
+
+  &__specialty {
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.4;
+  }
+}

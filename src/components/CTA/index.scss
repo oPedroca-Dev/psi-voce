@@ -1,0 +1,50 @@
+.cta-final {
+  padding: 100px 6%;
+  background-color: white;
+
+  &__box {
+    background-color: #9b51b6; // A cor roxa principal
+    padding: 80px 40px;
+    border-radius: 60px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 30px 60px rgba(155, 81, 182, 0.2);
+  }
+
+  &__title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 20px;
+    line-height: 1.1;
+
+    span {
+      font-style: italic;
+      opacity: 0.8;
+    }
+  }
+
+  &__text {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    font-weight: 300;
+  }
+
+  &__btn {
+    display: inline-block;
+    background: white;
+    color: #9b51b6;
+    padding: 20px 50px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

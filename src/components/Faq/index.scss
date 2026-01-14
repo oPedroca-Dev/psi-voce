@@ -1,0 +1,133 @@
+$color-primary: #9b51b6;
+$color-dark: #1a1a1a;
+$color-bg: #fdfaf6;
+$font-serif: 'DM Serif Display', serif;
+$transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+.faq {
+  padding: 120px 6%;
+  background-color: white;
+
+  &__container {
+    max-width: 800px; // Reduzido para melhorar a legibilidade
+    margin: 0 auto;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 70px;
+    
+    .faq__subtitle {
+      margin-top: 15px;
+      color: #888;
+      font-weight: 300;
+      font-size: 1.1rem;
+    }
+  }
+
+  &__tag {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: $color-primary;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    color: $color-dark;
+    line-height: 1;
+    span { font-style: italic; color: rgba($color-dark, 0.3); }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__item {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 24px; // Bordas bem arredondadas (estilo Apple/Moderno)
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      border-color: rgba($color-primary, 0.3);
+      background: $color-bg;
+    }
+
+    &--active {
+      background: $color-bg;
+      border-color: transparent;
+      box-shadow: 0 20px 40px rgba($color-primary, 0.05);
+
+      .faq__icon-box {
+        transform: rotate(180deg);
+        background: $color-primary;
+        color: white;
+      }
+
+      .faq__answer {
+        grid-template-rows: 1fr;
+        padding-bottom: 25px;
+        opacity: 1;
+      }
+
+      h3 { color: $color-primary; }
+    }
+  }
+
+  &__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    gap: 20px;
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: $color-dark;
+      transition: $transition;
+      line-height: 1.4;
+    }
+  }
+
+  &__icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: $color-dark;
+    transition: $transition;
+    flex-shrink: 0;
+  }
+
+  &__answer {
+    display: grid;
+    grid-template-rows: 0fr; // Técnica moderna para animação de altura
+    transition: $transition;
+    opacity: 0;
+    overflow: hidden;
+
+    &-content {
+      min-height: 0;
+      p {
+        color: #555;
+        line-height: 1.8;
+        font-size: 1rem;
+        font-weight: 300;
+      }
+    }
+  }
+}

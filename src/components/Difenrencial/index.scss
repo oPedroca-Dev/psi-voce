@@ -1,0 +1,129 @@
+$color-primary: #9b51b6;
+$color-dark: #1a1a1a;
+$color-text: #666;
+$font-serif: 'DM Serif Display', serif;
+$font-sans: 'Inter', sans-serif;
+
+.concept {
+  padding: 120px 6%;
+  background-color: #fdfaf6; // Bege suave para contrastar com as seções brancas
+  overflow: hidden;
+
+  &__container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+
+    @media (max-width: 1100px) {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+  }
+
+  &__tag {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: $color-primary;
+    margin-bottom: 25px;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+    line-height: 1.1;
+    color: $color-dark;
+    margin-bottom: 30px;
+
+    span {
+      font-style: italic;
+      color: rgba($color-dark, 0.4);
+      display: block;
+    }
+  }
+
+  &__text {
+    font-family: $font-sans;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: $color-text;
+    margin-bottom: 50px;
+    font-weight: 300;
+
+    strong {
+      color: $color-dark;
+      font-weight: 600;
+    }
+  }
+
+  &__features {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  &__item {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+
+    .number {
+      font-family: $font-serif;
+      font-size: 1.5rem;
+      color: $color-primary;
+      opacity: 0.5;
+      padding-top: 5px;
+    }
+
+    h4 {
+      font-family: $font-sans;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: $color-dark;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: $color-text;
+      line-height: 1.5;
+    }
+  }
+
+  &__visual {
+    position: relative;
+    
+    img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 100px 100px 0 100px; // Formato orgânico e sofisticado
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+    }
+
+    // Detalhe decorativo (círculo atrás da foto)
+    &::after {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 200px;
+      height: 200px;
+      background: rgba($color-primary, 0.05);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    @media (max-width: 1100px) {
+      img {
+        height: 450px;
+        border-radius: 60px;
+      }
+    }
+  }
+}

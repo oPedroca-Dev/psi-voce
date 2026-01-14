@@ -1,0 +1,133 @@
+$color-primary: #9b51b6;
+$color-bg-footer: #1a1a1a; // Tom escuro sofisticado
+$color-text-dim: rgba(255, 255, 255, 0.6);
+$font-serif: 'DM Serif Display', serif;
+
+.footer {
+  background-color: $color-bg-footer;
+  color: white;
+  padding: 100px 6% 0;
+  border-radius: 60px 60px 0 0; // Curvatura elegante no topo
+  position: relative;
+  z-index: 10;
+  margin-top: -50px; // Sobrepõe levemente a seção anterior
+
+  &__container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr;
+    gap: 80px;
+    padding-bottom: 80px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      gap: 50px;
+      text-align: center;
+    }
+  }
+
+  &__logo {
+    height: 80px;
+    margin-bottom: 30px;
+    filter: brightness(0) invert(1); // Deixa a logo branca
+  }
+
+  &__description {
+    color: $color-text-dim;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-weight: 300;
+  }
+
+  &__social {
+    display: flex;
+    gap: 20px;
+    @media (max-width: 1024px) { justify-content: center; }
+
+    a {
+      color: white;
+      font-size: 1.5rem;
+      transition: 0.3s;
+      &:hover {
+        color: $color-primary;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 1.6rem;
+    margin-bottom: 35px;
+    color: $color-primary;
+  }
+
+  &__nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    a {
+      color: $color-text-dim;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.3s;
+      
+      @media (max-width: 1024px) { justify-content: center; }
+
+      svg { font-size: 0.7rem; opacity: 0.5; }
+
+      &:hover {
+        color: white;
+        padding-left: 8px;
+      }
+    }
+  }
+
+  &__contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    li {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      color: $color-text-dim;
+      line-height: 1.5;
+
+      @media (max-width: 1024px) { justify-content: center; }
+
+      svg {
+        color: $color-primary;
+        font-size: 1.2rem;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px 0;
+    
+    &-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 0.85rem;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+    }
+  }
+}
