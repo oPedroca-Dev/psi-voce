@@ -1,29 +1,32 @@
 $color-primary: #9b51b6;
 $color-dark: #1a1a1a;
+$color-bg-soft: #fcfaf8;
 $font-serif: 'DM Serif Display', serif;
+$transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
 .location {
-  padding: 100px 6%;
-  background-color: #fdfaf6;
+  padding: 140px 6%;
+  background-color: white;
+  position: relative;
 
   &__container {
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 100px;
     align-items: center;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1100px) {
       grid-template-columns: 1fr;
-      gap: 50px;
+      gap: 60px;
     }
   }
 
   &__tag {
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 800;
     color: $color-primary;
     margin-bottom: 20px;
@@ -32,67 +35,121 @@ $font-serif: 'DM Serif Display', serif;
 
   &__title {
     font-family: $font-serif;
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(2.8rem, 5vw, 4rem);
     color: $color-dark;
-    margin-bottom: 40px;
-    span { font-style: italic; color: rgba($color-dark, 0.4); }
+    line-height: 1.1;
+    margin-bottom: 50px;
+    span { font-style: italic; color: rgba($color-dark, 0.3); }
   }
 
-  &__details {
+  &__cards {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
   }
 
-  &__item {
+  &__card {
     display: flex;
-    gap: 20px;
-    align-items: flex-start;
+    gap: 25px;
+    padding: 25px;
+    background: $color-bg-soft;
+    border-radius: 25px;
+    transition: $transition;
+    border: 1px solid transparent;
 
+    &:hover {
+      background: white;
+      border-color: rgba($color-primary, 0.15);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+      transform: translateX(10px);
+
+      .location__icon-wrapper {
+        background: $color-primary;
+        color: white;
+      }
+    }
+  }
+
+  &__icon-wrapper {
+    width: 54px;
+    height: 54px;
+    background: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: $color-primary;
+    transition: $transition;
+    flex-shrink: 0;
+  }
+
+  &__info-text {
     h4 {
       font-size: 1.1rem;
       font-weight: 700;
       color: $color-dark;
       margin-bottom: 5px;
     }
-
     p {
-      color: #666;
+      color: rgba($color-dark, 0.6);
       line-height: 1.6;
-      font-size: 1rem;
+      font-weight: 300;
     }
   }
 
-  &__icon {
-    font-size: 1.5rem;
-    color: $color-primary;
-    margin-top: 5px;
-  }
-
-  &__btn {
-    display: inline-block;
-    padding: 18px 40px;
-    background-color: $color-dark;
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 22px 45px;
+    background: $color-dark;
     color: white;
     text-decoration: none;
     border-radius: 100px;
-    font-weight: 600;
-    transition: 0.3s;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: $transition;
 
     &:hover {
-      background-color: $color-primary;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba($color-primary, 0.2);
+      background: $color-primary;
+      box-shadow: 0 15px 30px rgba($color-primary, 0.25);
+      transform: translateY(-5px);
     }
   }
 
-  &__map {
-    height: 500px;
-    border-radius: 40px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+  &__map-container {
+    position: relative;
+    height: 600px;
     
-    @media (max-width: 768px) { height: 350px; }
+    @media (max-width: 768px) { height: 400px; }
+  }
+
+  &__map-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.1);
+    // Filtro para o mapa ficar mais elegante e combinar com a paleta
+    iframe {
+      filter: grayscale(0.2) contrast(1.1);
+    }
+  }
+
+  &__map-decoration {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 300px;
+    height: 300px;
+    background: $color-bg-soft;
+    border-radius: 50%;
+    z-index: 1;
   }
 }

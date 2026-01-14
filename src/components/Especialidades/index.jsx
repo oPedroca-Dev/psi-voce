@@ -8,40 +8,40 @@ const mainServices = [
   {
     id: 1,
     title: "Psicoterapia",
-    description: "Atendimento especializado em Terapia Cognitivo-Comportamental (TCC) e Abordagem Centrada na Pessoa.",
+    category: "Mente",
+    description: "Espaço de acolhimento para ansiedade e autoconhecimento com base em evidências científicas.",
     icon: <FiUsers />,
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1370&auto=format&fit=crop"
   },
   {
     id: 2,
     title: "Pilates",
-    description: "Método focado no fortalecimento, flexibilidade e consciência corporal para todas as idades.",
+    category: "Corpo",
+    description: "Método personalizado para reabilitação, fortalecimento e consciência do movimento.",
     icon: <FiActivity />,
     image: "https://images.unsplash.com/photo-1518611012118-29a8d63ee0c2?q=80&w=1470&auto=format&fit=crop"
   },
   {
     id: 3,
     title: "Nutrição",
-    description: "Planejamento alimentar focado em saúde e bem-estar, respeitando sua individualidade biológica.",
+    category: "Vida",
+    description: "Planos alimentares que respeitam sua biologia e promovem um relacionamento saudável com a comida.",
     icon: <FiHeart />,
     image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1453&auto=format&fit=crop"
   },
   {
     id: 4,
     title: "Fisioterapia",
-    description: "Reabilitação física e prevenção com técnicas avançadas para sua mobilidade e qualidade de vida.",
+    category: "Saúde",
+    description: "Prevenção e tratamento de dores com técnicas manuais e exercícios funcionais específicos.",
     icon: <FiWind />,
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1470&auto=format&fit=crop"
   }
 ];
 
 const complementaryTherapies = [
-  { name: "Hipnoterapia", icon: <FiTarget /> },
-  { name: "Auriculoterapia", icon: <FiZap /> },
-  { name: "Liberação Miofascial", icon: <FiLifeBuoy /> },
-  { name: "Ventosaterapia", icon: <FiCheckCircle /> },
-  { name: "Massagem Relaxante", icon: <FiHeart /> },
-  { name: "Drenagem Linfática", icon: <FiActivity /> }
+  "Hipnoterapia", "Auriculoterapia", "Liberação Miofascial", 
+  "Ventosaterapia", "Massagem Relaxante", "Drenagem Linfática"
 ];
 
 export default function Specialties() {
@@ -49,36 +49,37 @@ export default function Specialties() {
     <section id="especialidades" className="specialties">
       <div className="specialties__container">
         <header className="specialties__header">
-          <span className="specialties__tag">Nossas Especialidades</span>
-          <h2 className="specialties__title">Soluções integradas para <br /> <span>seu bem-estar.</span></h2>
+          <div className="specialties__badge">Abordagem Integrativa</div>
+          <h2 className="specialties__title">Nossas <span>Especialidades.</span></h2>
+          <p className="specialties__subtitle">Cuidado completo em um só lugar, unindo especialistas para sua saúde integral.</p>
         </header>
 
-        {/* Grid de Serviços Principais */}
         <div className="specialties__grid">
           {mainServices.map((service) => (
             <div key={service.id} className="specialties__card">
-              <div className="specialties__image-wrapper">
+              <div className="specialties__img-box">
+                <span className="specialties__card-tag">{service.category}</span>
                 <img src={service.image} alt={service.title} />
               </div>
-              <div className="specialties__info">
-                <div className="specialties__card-header">
-                  {service.icon}
-                  <h3>{service.title}</h3>
-                </div>
+              <div className="specialties__card-content">
+                <div className="specialties__card-icon">{service.icon}</div>
+                <h3>{service.title}</h3>
                 <p>{service.description}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Seção de Terapias Complementares */}
-        <div className="specialties__complementary">
-          <h4 className="specialties__complementary-title">Terapias e Cuidados Complementares</h4>
-          <div className="specialties__list">
-            {complementaryTherapies.map((therapy, index) => (
-              <div key={index} className="specialties__item">
-                <span className="specialties__item-icon">{therapy.icon}</span>
-                <span className="specialties__item-name">{therapy.name}</span>
+        <div className="specialties__plus">
+          <div className="specialties__plus-header">
+            <h4>Cuidados Complementares</h4>
+            <div className="specialties__plus-line"></div>
+          </div>
+          <div className="specialties__plus-list">
+            {complementaryTherapies.map((name, i) => (
+              <div key={i} className="specialties__plus-item">
+                <FiCheckCircle className="icon" />
+                <span>{name}</span>
               </div>
             ))}
           </div>

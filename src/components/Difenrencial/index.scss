@@ -1,129 +1,168 @@
 $color-primary: #9b51b6;
 $color-dark: #1a1a1a;
-$color-text: #666;
+$color-bg: #fcfaf8; 
 $font-serif: 'DM Serif Display', serif;
-$font-sans: 'Inter', sans-serif;
+$transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
 
 .concept {
-  padding: 120px 6%;
-  background-color: #fdfaf6; // Bege suave para contrastar com as seções brancas
+  padding: 160px 6%;
+  background-color: $color-bg;
+  position: relative;
   overflow: hidden;
 
   &__container {
     max-width: 1300px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
+    grid-template-columns: 0.9fr 1.1fr; // Assimetria proposital
+    gap: 120px;
     align-items: center;
 
     @media (max-width: 1100px) {
       grid-template-columns: 1fr;
-      gap: 60px;
-    }
-  }
-
-  &__tag {
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: $color-primary;
-    margin-bottom: 25px;
-  }
-
-  &__title {
-    font-family: $font-serif;
-    font-size: clamp(2.5rem, 4.5vw, 3.8rem);
-    line-height: 1.1;
-    color: $color-dark;
-    margin-bottom: 30px;
-
-    span {
-      font-style: italic;
-      color: rgba($color-dark, 0.4);
-      display: block;
-    }
-  }
-
-  &__text {
-    font-family: $font-sans;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: $color-text;
-    margin-bottom: 50px;
-    font-weight: 300;
-
-    strong {
-      color: $color-dark;
-      font-weight: 600;
-    }
-  }
-
-  &__features {
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-  }
-
-  &__item {
-    display: flex;
-    gap: 25px;
-    align-items: flex-start;
-
-    .number {
-      font-family: $font-serif;
-      font-size: 1.5rem;
-      color: $color-primary;
-      opacity: 0.5;
-      padding-top: 5px;
-    }
-
-    h4 {
-      font-family: $font-sans;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: $color-dark;
-      margin-bottom: 8px;
-    }
-
-    p {
-      font-size: 0.95rem;
-      color: $color-text;
-      line-height: 1.5;
+      gap: 80px;
     }
   }
 
   &__visual {
     position: relative;
-    
-    img {
-      width: 100%;
-      height: 600px;
-      object-fit: cover;
-      border-radius: 100px 100px 0 100px; // Formato orgânico e sofisticado
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
-    }
+    z-index: 2;
+  }
 
-    // Detalhe decorativo (círculo atrás da foto)
+  &__image-wrapper {
+    position: relative;
+    border-radius: 200px 200px 20px 200px; // Curva boutique icônica
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba($color-primary, 0.08);
+
     &::after {
       content: '';
       position: absolute;
-      top: -30px;
-      right: -30px;
-      width: 200px;
-      height: 200px;
-      background: rgba($color-primary, 0.05);
-      border-radius: 50%;
-      z-index: -1;
+      inset: 0;
+      background: linear-gradient(to top, rgba($color-dark, 0.2), transparent);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    display: block;
+    transition: $transition;
+    
+    &:hover { transform: scale(1.05); }
+  }
+
+  &__experience {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    background: white;
+    padding: 25px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+    .years {
+      font-family: $font-serif;
+      font-size: 2.5rem;
+      color: $color-primary;
+      line-height: 1;
     }
 
-    @media (max-width: 1100px) {
-      img {
-        height: 450px;
-        border-radius: 60px;
-      }
+    .text {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: $color-dark;
+      margin-top: 5px;
+    }
+  }
+
+  &__shape {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba($color-primary, 0.15);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  &__tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: $color-primary;
+    display: block;
+    margin-bottom: 25px;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    color: $color-dark;
+    line-height: 1.05;
+    margin-bottom: 35px;
+
+    &--light {
+      font-weight: 400;
+      font-style: italic;
+      color: rgba($color-dark, 0.3);
+    }
+  }
+
+  &__description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba($color-dark, 0.7);
+    margin-bottom: 60px;
+    font-weight: 300;
+    
+    strong { color: $color-dark; font-weight: 600; }
+  }
+
+  &__features {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  &__item {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__number {
+    font-family: $font-serif;
+    font-size: 1.2rem;
+    color: white;
+    background: $color-primary;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $color-dark;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1rem;
+      color: rgba($color-dark, 0.6);
+      line-height: 1.6;
     }
   }
 }
