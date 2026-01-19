@@ -8,7 +8,7 @@ const mainServices = [
     category: "Mente",
     cta: "Iniciar Processo",
     description: "Acolhimento clínico para ansiedade e autoconhecimento com base em evidências científicas.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1370&auto=format&fit=crop"
+    image: "./public/psi.jpg"
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const mainServices = [
     category: "Corpo",
     cta: "Marcar Aula",
     description: "Método personalizado focado em reabilitação e consciência do movimento funcional.",
-    image: "https://images.unsplash.com/photo-1518611012118-29a8d63ee0c2?q=80&w=1470&auto=format&fit=crop"
+    image: "./public/pilates.jpg"
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const mainServices = [
     category: "Vida",
     cta: "Ver Método",
     description: "Planos que respeitam sua biologia e promovem uma relação saudável com a comida.",
-    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1453&auto=format&fit=crop"
+    image: "./public/nutri.jpg"
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const mainServices = [
     category: "Saúde",
     cta: "Avaliar Lesão",
     description: "Prevenção e tratamento de dores com técnicas manuais e exercícios específicos.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1470&auto=format&fit=crop"
+    image: "./public/fisio.jpg"
   }
 ];
 

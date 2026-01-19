@@ -24,14 +24,11 @@ export default function Hero() {
           </p>
 
           <div className="hero-refined__actions">
-            <a href="#agendar" className="btn-luxury">
+            <a href="" className="btn-luxury">
               <span>Agendar Avaliação</span>
               <FiArrowRight />
             </a>
-            <button className="btn-video" aria-label="Ver vídeo do espaço">
-              <div className="play-icon"><FiPlay /></div>
-              <span>Conheça o Espaço</span>
-            </button>
+            
           </div>
         </div>
 
@@ -39,7 +36,7 @@ export default function Hero() {
           <div className="hero-refined__image-stack">
             {/* Moldura arquitetônica para a imagem */}
             <div className="main-image-wrapper">
-              <img src="./teste.jpg" alt="Equilíbrio e Bem-estar no Instituto" className="main-img" />
+              <img src="./banner.jpg" alt="Equilíbrio e Bem-estar no Instituto" className="main-img" />
               <div className="image-overlay"></div>
             </div>
             
