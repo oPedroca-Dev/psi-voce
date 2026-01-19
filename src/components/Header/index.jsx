@@ -10,6 +10,13 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const menuItems = [
+    { label: 'Início', path: '/' },
+    { label: 'Especialistas', path: '/profissionais' },
+    { label: 'Método', path: '#especialidades' },
+    { label: 'O Espaço', path: '/espaco' }
+  ];
+
   const handleAnchor = (e, target) => {
     e.preventDefault();
     setIsOpen(false);
@@ -17,7 +24,7 @@ export default function Header() {
       navigate('/');
       setTimeout(() => {
         document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
-      }, 150);
+      }, 300);
     } else {
       document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
     }
@@ -29,7 +36,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Bloqueia o scroll quando o menu mobile está aberto
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'unset';
   }, [isOpen]);
@@ -44,14 +50,21 @@ export default function Header() {
 
         <nav className={`header__nav ${isOpen ? 'header__nav--open' : ''}`}>
           <div className="header__nav-list">
-            <Link to="/" className={`header__link ${location.pathname === '/' ? 'active' : ''}`} onClick={() => setIsOpen(false)}>Início</Link>
-            <Link to="/profissionais" className={`header__link ${location.pathname === '/profissionais' ? 'active' : ''}`} onClick={() => setIsOpen(false)}>Especialistas</Link>
-            <a href="#especialidades" className="header__link" onClick={(e) => handleAnchor(e, "#especialidades")}>Método</a>
-            <Link to="/espaco" className={`header__link ${location.pathname === '/espaco' ? 'active' : ''}`} onClick={() => setIsOpen(false)}>O Espaço</Link>
+            {menuItems.map((item, index) => (
+              <Link 
+                key={item.label}
+                to={item.path.startsWith('#') ? undefined : item.path}
+                className={`header__link ${location.pathname === item.path ? 'active' : ''}`}
+                style={{ transitionDelay: isOpen ? `${0.1 * index}s` : '0s' }}
+                onClick={(e) => item.path.startsWith('#') ? handleAnchor(e, item.path) : setIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
           
           <div className="header__mobile-footer">
-             <small>Agendamentos e Informações</small>
+             <small>Agendamentos</small>
              <a href="https://wa.me/551146733583" target="_blank" rel="noreferrer">+55 11 4673-3583</a>
           </div>
         </nav>

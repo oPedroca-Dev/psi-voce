@@ -10,7 +10,7 @@ const professionals = [
     specialty: "Cognitiva Comportamental", 
     target: "Adolescentes, Adultos e Idosos",
     quote: "Tenha cuidado com o que você pensa, pois a sua vida é dirigida pelos seus pensamentos. Prov. 4.23",
-    image: "./public/kelly.jpg", 
+    image: "./public/profissionais/kelly.jpg", 
     instagram: "https://instagram.com/seu_perfil", // Coloque seu link aqui
     linkedin: "https://linkedin.com/in/seu_perfil",
     isPartner: true 
@@ -23,7 +23,7 @@ const professionals = [
     specialty: "Gestora e Estudante de Psicologia", 
     target: "A partir de 15 anos",
     quote: "Vencer a si próprio é a maior das vitórias.",
-    image: "/jacqueline.jpg",
+    image: "./public/profissionais/jaque.jpg",
     instagram: "https://instagram.com/perfil_jac",
     linkedin: "https://linkedin.com/in/perfil_jac",
     isPartner: true 
@@ -36,7 +36,7 @@ const professionals = [
     specialty: "Abordagem Centrada na Pessoa", 
     target: "Crianças (6+), Adolescentes e Adultos",
     quote: "O autoconhecimento é libertador. Ele não te prende, ele te mostra caminhos.",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=687&auto=format&fit=crop",
+    image: "./public/profissionais/Michelle.jpg",
     instagram: "#",
     linkedin: "#"
   },
@@ -48,7 +48,7 @@ const professionals = [
     specialty: "Terapia Cognitivo Comportamental", 
     target: "Crianças (4+), Adultos, Idosos e Casais",
     quote: "A conexão consigo será ainda mais encantadora, e nada te arrancará isso jamais.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=688&auto=format&fit=crop",
+    image: "./public/profissionais/bianca.jpg",
     instagram: "#",
     linkedin: "#"
   },
@@ -60,7 +60,7 @@ const professionals = [
     specialty: "Educação Alimentar e Nutricional", 
     target: "Público jovem e adulto (15+)",
     quote: "Comer vai muito além de ingerir nutrientes, cuidar da alimentação de acordo com sua realidade faz a diferença!",
-    image: "https://images.unsplash.com/photo-1559839734-2b71f1536783?q=80&w=687&auto=format&fit=crop",
+    image: "./public/profissionais/leticia.jpg",
     instagram: "#",
     linkedin: "#"
   },
@@ -72,7 +72,7 @@ const professionals = [
     specialty: "Terapia Cognitivo Comportamental", 
     target: "A partir de 13 anos",
     quote: "Cada pessoa carrega uma história única — meu papel é acolher, escutar e caminhar junto.",
-    image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=687&auto=format&fit=crop",
+    image: "./public/profissionais/karol.jpg",
     instagram: "#",
     linkedin: "#"
   },
@@ -84,7 +84,7 @@ const professionals = [
     specialty: "Fisioterapia Geral", 
     target: "Público Geral",
     quote: "Quando a técnica encontra o cuidado, nasce o verdadeiro tratamento.",
-    image: "https://images.unsplash.com/photo-1622902046580-2b47f47f0871?q=80&w=687&auto=format&fit=crop",
+    image: "./public/profissionais/geralda.jpg",
     instagram: "#",
     linkedin: "#"
   }
