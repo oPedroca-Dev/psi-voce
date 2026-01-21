@@ -1,10 +1,9 @@
 import './index.scss';
 
 const galleryImages = [
-  { id: 1, src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1453&auto=format&fit=crop", size: "large", label: "Recepção Acolhedora" },
-  { id: 2, src: "https://images.unsplash.com/photo-1596073413908-4412c0116810?q=80&w=1374&auto=format&fit=crop", size: "small", label: "Sala de Pilates" },
+  { id: 1, src: "./public/rec.png", size: "large", label: "Recepção Acolhedora" },
+  { id: 2, src: "./public/pilates.png", size: "small", label: "Sala de Pilates" },
   { id: 3, src: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1470&auto=format&fit=crop", size: "small", label: "Consultório de Psicologia" },
-  { id: 4, src: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1520&auto=format&fit=crop", size: "medium", label: "Área de Relaxamento" },
 ];
 
 export default function Gallery() {

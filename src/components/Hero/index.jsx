@@ -24,7 +24,7 @@ export default function Hero() {
           </p>
 
           <div className="hero-refined__actions">
-            <a href="" className="btn-luxury">
+            <a href="https://wa.me/551146733583?text=Olá! Gostaria de agendar uma avaliação no Instituto Psi & Você." className="btn-luxury">
               <span>Agendar Avaliação</span>
               <FiArrowRight />
             </a>

@@ -128,9 +128,7 @@ export default function Professionals() {
                     </a>
                   </div>
                   
-                  <button className="professionals__btn">
-                    Ver Currículo <FiArrowUpRight />
-                  </button>
+                  
                 </div>
               </div>
               

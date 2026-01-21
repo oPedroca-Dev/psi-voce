@@ -70,14 +70,19 @@ export default function Header() {
         </nav>
 
         <div className="header__actions">
-          <a href="https://wa.me/551146733583" target="_blank" rel="noreferrer" className="header__btn">
-            <span>Agendar Consulta</span>
-          </a>
-          
-          <button className="header__toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Menu">
-            {isOpen ? <HiX /> : <HiMenuAlt3 />}
-          </button>
-        </div>
+  <a 
+    href="https://wa.me/551146733583?text=Olá! Gostaria de agendar uma avaliação no Instituto Psi & Você." 
+    target="_blank" 
+    rel="noreferrer" 
+    className="header__btn"
+  >
+    <span>Agendar Avaliação</span>
+  </a>
+  
+  <button className="header__toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Menu">
+    {isOpen ? <HiX /> : <HiMenuAlt3 />}
+  </button>
+</div>
       </div>
       
       <div className={`header__overlay ${isOpen ? 'visible' : ''}`} onClick={() => setIsOpen(false)}></div>
