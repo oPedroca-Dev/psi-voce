@@ -12,9 +12,9 @@ export default function Header() {
 
   const menuItems = [
     { label: 'Início', path: '/' },
-    { label: 'Especialistas', path: '/profissionais' },
+    { label: 'Profissionais', path: '/profissionais' },
     { label: 'Método', path: '#especialidades' },
-    { label: 'O Espaço', path: '/espaco' }
+    { label: 'Espaço', path: '/espaco' }
   ];
 
   const handleAnchor = (e, target) => {

@@ -1,184 +1,128 @@
-@import '../../styles/variables';
-
-$purple-deep: #4B2C5E;
-$purple-primary: #8E6FB8;
-$purple-mist: #F7F4F9;
+@use '../../styles/variables' as v;
 
 .spec {
-  padding: 140px 6%;
-  background-color: #ffffff;
-
-  &__container {
-    max-width: 1440px;
-    margin: 0 auto;
-  }
+  padding: 160px 8%;
+  background-color: #fff;
 
   &__header {
     margin-bottom: 100px;
-  }
-
-  &__badge {
-    font-size: 0.8rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: $purple-primary;
-    margin-bottom: 20px;
-    display: block;
-  }
-
-  &__title {
-    font-family: $font-serif;
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    line-height: 1;
-    color: $purple-deep;
-    
-    span { font-weight: 300; opacity: 0.4; }
+    .spec__badge {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: v.$color-primary;
+      margin-bottom: 20px;
+    }
+    .spec__title {
+      font-family: v.$font-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      color: v.$color-dark;
+      span { font-weight: 300; font-style: italic; opacity: 0.5; }
+    }
   }
 
   &__grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 120px; // Espaço maior entre cards
-
-    @media (min-width: 992px) { 
-      grid-template-columns: repeat(2, 1fr);
-      gap: 140px 80px;
-    }
+    grid-template-columns: repeat(2, 1fr);
+    gap: 100px 60px;
+    @media (max-width: 900px) { grid-template-columns: 1fr; }
   }
 
   &__card {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    .spec__img-box {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      margin-bottom: 30px;
+      background: #f8f8f8;
+      
+      img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: 1s ease;
+      }
+    }
+    
+    &:hover img { transform: scale(1.05); }
 
-    // Estilo 1: Corte inclinado para a direita
-    &--left .spec__img-wrapper {
-      clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 92%);
+    .spec__category-tag {
+      position: absolute;
+      bottom: 20px; left: 20px;
+      background: white;
+      padding: 8px 15px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
-    // Estilo 2: Corte inclinado para a esquerda
-    &--right .spec__img-wrapper {
-      clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
-    }
-
-    &:hover {
-      .spec__img-wrapper img { transform: scale(1.1); }
-    }
-  }
-
-  &__img-wrapper {
-    height: 600px; // Aumentado para maior impacto
-    position: relative;
-    overflow: hidden;
-    background: $purple-mist;
-    transition: clip-path 0.6s ease;
-
-    @media (max-width: 768px) { height: 450px; }
-
-    img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-  }
-
-  &__category {
-    position: absolute;
-    top: 40px; left: 40px;
-    background: $purple-deep;
-    color: white;
-    padding: 12px 25px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    z-index: 5;
-  }
-
-  &__content {
     h3 {
-      font-family: $font-serif;
-      font-size: clamp(2.2rem, 4vw, 3rem);
-      color: $purple-deep;
-      margin-bottom: 20px;
+      font-family: v.$font-serif;
+      font-size: 2.2rem;
+      color: v.$color-dark;
+      margin-bottom: 15px;
     }
 
     p {
-      color: rgba($purple-deep, 0.7);
-      line-height: 1.8;
-      font-size: 1.2rem;
-      font-weight: 300;
-      margin-bottom: 35px;
-      max-width: 500px;
+      color: #666;
+      line-height: 1.7;
+      font-size: 1rem;
+      margin-bottom: 25px;
+      height: 100px; // Mantém o alinhamento visual
+      @media (max-width: 900px) { height: auto; }
+    }
+
+    button {
+      background: none; border: none;
+      display: flex; align-items: center; gap: 10px;
+      color: v.$color-primary;
+      font-weight: 700; text-transform: uppercase;
+      font-size: 0.75rem; letter-spacing: 2px;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover { gap: 20px; }
     }
   }
 
-  &__link {
-    background: transparent;
-    border: none;
-    display: inline-flex; 
-    align-items: center; 
-    gap: 15px;
-    font-weight: 800; 
-    text-transform: uppercase;
-    font-size: 0.8rem; 
-    letter-spacing: 2px;
-    color: $purple-primary; 
-    cursor: pointer;
-    
-    svg { transition: transform 0.3s ease; }
-    &:hover svg { transform: translateX(10px); }
-  }
-
-  // Seção Complementar com forma imponente
-  &__complementary {
+  // Seção de Terapias Complementares (Lista Clean)
+  &__extra {
     margin-top: 150px;
-  }
+    padding-top: 80px;
+    border-top: 1px solid #eee;
 
-  &__comp-box {
-    background: $purple-deep;
-    color: white;
-    padding: 100px 80px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 60px;
-    clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
-
-    @media (min-width: 992px) {
-      grid-template-columns: 0.8fr 1.2fr;
-      padding: 120px 100px;
+    &-header {
+      margin-bottom: 60px;
+      h4 { font-family: v.$font-serif; font-size: 2.5rem; color: v.$color-dark; margin-bottom: 10px; }
+      p { color: #888; letter-spacing: 1px; }
     }
-  }
 
-  &__comp-title {
-    font-family: $font-serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.1;
-  }
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
 
-  &__comp-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
-  }
+    &-item {
+      padding: 30px;
+      border: 1px solid #f0f0f0;
+      transition: 0.4s;
+      
+      .item-header {
+        display: flex; align-items: center; gap: 15px;
+        margin-bottom: 15px;
+        color: v.$color-primary;
+        h5 { font-size: 1.2rem; color: v.$color-dark; }
+      }
 
-  &__comp-item {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    transition: all 0.4s ease;
+      p { font-size: 0.9rem; color: #777; line-height: 1.6; }
 
-    .icon { color: $purple-primary; font-size: 1.2rem; }
-    span { font-weight: 600; letter-spacing: 1px; }
-
-    &:hover {
-      background: white;
-      color: $purple-deep;
-      transform: translateY(-5px);
+      &:hover {
+        background: #fdfbff;
+        border-color: v.$color-primary;
+        transform: translateY(-5px);
+      }
     }
   }
 }
