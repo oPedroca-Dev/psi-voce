@@ -1,66 +1,43 @@
 import './index.scss';
-import { FiArrowRight, FiPlay } from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
 
 export default function Hero() {
   return (
-    <section className="hero-refined">
-      {/* Elementos de fundo para profundidade */}
-      <div className="hero-refined__bg-glow"></div>
-      
-      <div className="hero-refined__container">
-        <div className="hero-refined__content">
-          <div className="hero-refined__eyebrow">
-            <span className="line"></span>
-            <span className="text">Saúde Mental & Movimento Consciente</span>
+    <section className="hero-integrated">
+      <div className="hero-integrated__container">
+        
+        <div className="hero-integrated__content">
+          <div className="hero-integrated__reveal">
+            <span className="hero-integrated__badge">Instituto Psi & Você</span>
+            <h1 className="hero-integrated__title">
+              Reconecte-se com <br />
+              sua <span>essência.</span>
+            </h1>
           </div>
-
-          <h1 className="hero-refined__title">
-            Reconecte-se com <br />
-            sua <span>essência.</span>
-          </h1>
-
-          <p className="hero-refined__description">
-            No Instituto <strong>Psi & Você</strong>, integramos a psicoterapia analítica ao Pilates clínico, proporcionando uma jornada de cura que começa na mente e reflete no corpo.
-          </p>
-
-          <div className="hero-refined__actions">
-            <a href="https://wa.me/551146733583?text=Olá! Gostaria de agendar uma avaliação no Instituto Psi & Você." className="btn-luxury">
-              <span>Agendar Avaliação</span>
-              <FiArrowRight />
+          
+          <div className="hero-integrated__box">
+            <p className="hero-integrated__description">
+              A psicoterapia clínica e o Pilates proporcionam uma jornada de 
+              <strong> cuidados especiais</strong>, integrando corpo e mente de forma única.
+            </p>
+            <a href="https://wa.me/551146733583" className="hero-integrated__button">
+              Começar minha jornada <FiArrowRight />
             </a>
-            
           </div>
         </div>
 
-        <div className="hero-refined__visual">
-          <div className="hero-refined__image-stack">
-            {/* Moldura arquitetônica para a imagem */}
-            <div className="main-image-wrapper">
-              <img src="./banner.jpg" alt="Equilíbrio e Bem-estar no Instituto" className="main-img" />
-              <div className="image-overlay"></div>
-            </div>
-            
-            {/* Badge de Autoridade Flutuante */}
-            <div className="floating-card">
-              <div className="floating-card__icon">🌿</div>
-              <div className="floating-card__info">
-                <p className="floating-card__title">Cuidado Integrado</p>
-                <p className="floating-card__sub">Corpo, Mente e Espírito</p>
-              </div>
-            </div>
-
-            {/* Círculos de acento geométrico */}
-            <div className="shape-ring"></div>
-            <div className="shape-blob"></div>
+        <div className="hero-integrated__visual">
+          <div className="hero-integrated__image-frame">
+            <img src="./banner.jpg" alt="Equilíbrio e Bem-estar" />
+            {/* O "V" ou detalhe de marca sutil sobre a foto */}
+            <div className="hero-integrated__decorative-text">Psi & Você</div>
           </div>
         </div>
+
       </div>
       
-      {/* Indicador de Scroll Minimalista */}
-      <div className="hero-refined__scroll">
-        <span className="scroll-text">Explore</span>
-        <span className="scroll-line"></span>
-      </div>
+      {/* Detalhe de fundo que traz o roxo da marca de forma suave */}
+      <div className="hero-integrated__shape"></div>
     </section>
   );
 }
