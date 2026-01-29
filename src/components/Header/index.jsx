@@ -13,7 +13,7 @@ export default function Header() {
   const menuItems = [
     { label: 'Início', path: '/' },
     { label: 'Profissionais', path: '/profissionais' },
-    { label: 'Método', path: '#especialidades' },
+    { label: 'Especialidades', path: '#especialidades' },
     { label: 'Espaço', path: '/espaco' }
   ];
 
