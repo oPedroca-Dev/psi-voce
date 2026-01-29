@@ -55,7 +55,7 @@ export default function Footer() {
             </li>
             <li>
               <FaEnvelope />
-              <span>psievoce@psievoce.com.br</span>
+              <span>atendimento@psievoce.com.br</span>
             </li>
           </ul>
         </div>
