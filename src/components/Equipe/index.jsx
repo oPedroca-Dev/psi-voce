@@ -10,7 +10,7 @@ const partners = [
     specialty: "Cognitiva Comportamental", 
     target: "Adolescentes, Adultos e Idosos",
     quote: "Tenha cuidado com o que você pensa, pois a sua vida é dirigida pelos seus pensamentos. Prov. 4.23",
-    image: "./public/profissionais/kelly.jpg", 
+    image: "./kelly.jpg", 
     instagram: "https://instagram.com/seu_perfil",
     linkedin: "https://linkedin.com/in/seu_perfil"
   },
@@ -22,7 +22,7 @@ const partners = [
     specialty: "Gestora e Estudante de Psicologia", 
     target: "A partir de 15 anos",
     quote: "Vencer a si próprio é a maior das vitórias.",
-    image: "./public/profissionais/jaque.jpg",
+    image: "./Jaque.jpg",
     instagram: "https://instagram.com/perfil_jac",
     linkedin: "https://linkedin.com/in/perfil_jac"
   }

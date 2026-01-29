@@ -8,7 +8,7 @@ const mainServices = [
     category: "Mente",
     cta: "Iniciar Processo",
     description: "Um processo que permite maior reflexão sobre si e sobre a maneira como o indivíduo enxerga e enfrenta as dificuldades, favorecendo o desenvolvimento de ferramentas para lidar com situações adversas e fortalecimento da saúde emocional.",
-    image: "./public/psi.jpg"
+    image: "./psi.jpg"
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const mainServices = [
     category: "Corpo",
     cta: "Marcar Aula",
     description: "Modalidade focada na Respiração, Concentração e Precisão. Fortalece o centro do corpo, corrige postura e previne dores, promovendo força e equilíbrio. Corpo mais leve, mente mais tranquila.",
-    image: "./public/pilates.jpg"
+    image: "./pilates.jpg"
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const mainServices = [
     category: "Reabilitação",
     cta: "Avaliar Lesão",
     description: "Modalidade de reabilitação e tratamento de dores com técnicas manuais e exercícios específicos, sempre respeitando os limites biológicos e a individualidade de cada quadro clínico.",
-    image: "./public/fisio.jpg"
+    image: "./fisio.jpg"
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const mainServices = [
     category: "Vida",
     cta: "Ver Método",
     description: "Processo clínico de avaliação e prescrição nutricional que respeita sua individualidade biológica e promove uma relação saudável e equilibrada com a comida.",
-    image: "./public/nutri.jpg"
+    image: "./nutri.jpg"
   }
 ];
 
