@@ -33,7 +33,7 @@ export default function Concept() {
         <div className="concept__visual">
           <div className="concept__image-wrapper">
             <img 
-              src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?q=80&w=1470&auto=format&fit=crop" 
+              src="./dife.png" 
               alt="Ambiente de acolhimento profissional" 
             />
           </div>
