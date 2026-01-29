@@ -34,7 +34,7 @@ export default function About() {
           
           <div className="visual-column">
             <div className="image-reveal">
-              <img src="./rec.png" alt="Instituto Psi & Você" />
+              <img src="./banner.png" alt="Instituto Psi & Você" />
               <div className="stat-overlay">
                 <div className="stat-content">
                   <span className="number">07</span>
