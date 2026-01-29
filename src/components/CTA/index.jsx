@@ -30,7 +30,7 @@ export default function CTAFinal() {
               rel="noopener noreferrer" 
               className="cta-final__btn"
             >
-              Agendar minha Avaliação
+              Agendar atendimento
                <FiArrowRight />
             </a>
           </div>

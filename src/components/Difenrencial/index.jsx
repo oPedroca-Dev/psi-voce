@@ -20,11 +20,11 @@ export default function Concept() {
 
           <div className="concept__stats">
             <div className="concept__stat-item">
-              <span className="number">10+</span>
+              <span className="number">07+</span>
               <p>Anos de <br/>Experiência</p>
             </div>
             <div className="concept__stat-item">
-              <span className="number">2k+</span>
+              <span className="number">2 mil+</span>
               <p>Vidas <br/>Transformadas</p>
             </div>
           </div>
