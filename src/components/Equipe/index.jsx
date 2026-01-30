@@ -16,7 +16,7 @@ const partners = [
   },
   { 
     id: 2, 
-    name: "Jacqueline Marques", 
+    name: "Jacqueline Campos", 
     role: "Prof. de Pilates & Personal", 
     crp: "CREF: 072376-G/SP",
     specialty: "Gestora e Estudante de Psicologia", 

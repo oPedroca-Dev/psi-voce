@@ -1,7 +1,7 @@
 import './index.scss';
 
 const galleryImages = [
-  { id: 1, src: "./rec.png", size: "large", label: "Recepção Acolhedora" },
+  { id: 1, src: "./rec.jpg", size: "large", label: "Recepção Acolhedora" },
   { id: 2, src: "./pilates.png", size: "small", label: "Sala de Pilates" },
   { id: 3, src: "./consul.jpg", size: "small", label: "Consultório de Psicologia" },
 ];

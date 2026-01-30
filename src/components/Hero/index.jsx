@@ -27,7 +27,7 @@ export default function Hero() {
             <div className="professionals">
               <span>Neurociência</span>
               <span className="dot"></span>
-              <span>Pilates Clínico</span>
+              <span>Pilates</span>
             </div>
           </div>
         </div>
