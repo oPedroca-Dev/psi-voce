@@ -35,7 +35,7 @@ export default function Footer() {
             <ul>
               <li><a href="/">Início</a></li>
               <li><a href="/profissionais">Profissionais</a></li>
-              <li><a href="/o-espaco">O Espaço</a></li>
+              <li><a href="/espaco">Espaço</a></li>
               <li><a href="#especialidades">Especialidades</a></li>
             </ul>
           </nav>

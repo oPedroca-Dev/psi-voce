@@ -11,8 +11,8 @@ const partners = [
     target: "Adolescentes, Adultos e Idosos",
     quote: "Tenha cuidado com o que você pensa, pois a sua vida é dirigida pelos seus pensamentos. Prov. 4.23",
     image: "./kelly.jpg", 
-    instagram: "https://instagram.com/seu_perfil",
-    linkedin: "https://linkedin.com/in/seu_perfil"
+    instagram: "https://www.instagram.com/kelly_ferreirapsi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    linkedin: "https://www.linkedin.com/in/ana-kelly-marques-ferreira-a3954788/"
   },
   { 
     id: 2, 
@@ -23,8 +23,8 @@ const partners = [
     target: "A partir de 15 anos",
     quote: "Vencer a si próprio é a maior das vitórias.",
     image: "./Jaque.jpg",
-    instagram: "https://instagram.com/perfil_jac",
-    linkedin: "https://linkedin.com/in/perfil_jac"
+    instagram: "https://www.instagram.com/jacquecampos_psievoce?igsh=ZHlpNzd2emFzcm5u&utm_source=qr",
+    linkedin: "https://www.linkedin.com/in/jacqueline-campos-a4445b63?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
   }
 ];
 
