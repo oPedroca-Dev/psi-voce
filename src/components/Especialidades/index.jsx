@@ -7,7 +7,7 @@ const mainServices = [
     title: "Psicoterapia",
     category: "Mente",
     cta: "Iniciar Processo",
-    description: "Um processo que permite maior reflexão sobre si e sobre a maneira como o indivíduo enxerga e enfrenta as dificuldades, favorecendo o desenvolvimento de ferramentas para lidar com situações adversas e fortalecimento da saúde emocional.",
+    description: "Um processo que permite maior reflexão sobre si e sobre a maneira como o indivíduo enxerga e enfrenta as dificuldades, favorecendo o desenvolvimento de ferramentas para lidar com situações adversas e o fortalecimento da saúde emocional.",
     image: "./psi.jpg"
   },
   {
