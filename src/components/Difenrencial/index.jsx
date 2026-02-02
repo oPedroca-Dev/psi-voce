@@ -37,7 +37,6 @@ export default function Concept() {
               alt="Ambiente de acolhimento profissional" 
             />
           </div>
-          {/* Card com tom de lavanda muito suave e borda roxa fina */}
           <div className="concept__floating-card">
             <h4>Atendimento Premium</h4>
             <p>Sessões individuais focadas na sua singularidade e equilíbrio.</p>

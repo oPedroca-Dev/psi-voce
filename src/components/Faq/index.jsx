@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import './index.scss';
 
-// Dados centralizados e protegidos
 const faqs = [
   {
     question: "Como funciona a primeira sessão de psicoterapia?",
@@ -25,7 +24,6 @@ const faqs = [
 export default function FAQ() {
   const [active, setActive] = useState(null);
 
-  // Função para garantir que apenas um item abra por vez de forma segura
   const toggleFAQ = (index) => {
     setActive(active === index ? null : index);
   };

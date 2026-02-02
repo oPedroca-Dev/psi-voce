@@ -73,7 +73,7 @@ export default function Professionals() {
           ))}
         </div>
 
-        {/* Lista da Equipe sem Foto - Elegante e Organizada */}
+        {/* Lista da Equipe sem Foto */}
         <div className="prof__team-section">
           <h4 className="prof__team-title">Corpo Clínico</h4>
           <div className="prof__team-list">

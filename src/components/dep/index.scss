@@ -67,7 +67,6 @@
       font-weight: 600;
     }
 
-    // Variantes de Card
     &--destaque {
       background: v.$color-primary;
       .t-card__cat, .t-card__body, .t-card__author { color: #fff; }

@@ -1,6 +1,5 @@
 @use '../../styles/variables' as v;
 
-// Mapeamento das suas variáveis reais
 $p-primary: v.$color-primary;
 $p-dark: v.$color-dark;
 $p-cream: v.$color-bg-cream;
@@ -16,12 +15,11 @@ $font-serif: v.$font-serif;
   }
 
   &__box {
-    background: $p-dark; // Uso do tom escuro para contraste máximo e autoridade
+    background: $p-dark; 
     padding: clamp(60px, 8vw, 120px) 40px;
     position: relative;
     overflow: hidden;
     
-    // Forma Geométrica: Fugindo do arredondado simples
     clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
     
     @media (max-width: 768px) {
@@ -30,7 +28,6 @@ $font-serif: v.$font-serif;
     }
   }
 
-  // Formas abstratas em roxo para profundidade
   &__shape {
     position: absolute;
     background: $p-primary;
@@ -99,7 +96,7 @@ $font-serif: v.$font-serif;
     display: inline-flex;
     align-items: center;
     gap: 15px;
-    background: $p-primary; // Botão roxo sobre o fundo escuro
+    background: $p-primary; 
     color: white;
     padding: 22px 50px;
     text-decoration: none;
