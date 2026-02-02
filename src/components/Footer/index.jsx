@@ -23,7 +23,7 @@ export default function Footer() {
             Seu refúgio de saúde integrada na Vila Sofia.
           </p>
           <div className="footer__social">
-            <a href="https://www.instagram.com/equipepsievoce?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://www.instagram.com/institutopsievoce?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
             <a href="https://wa.me/551146733583" target="_blank" rel="noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
           </div>
         </div>
