@@ -23,7 +23,7 @@ export default function About() {
           
           <div className="info-area">
             <p className="lead-text">
-              Fundado pelas irmãs <strong>Kelly Ferreira</strong> e <strong>Jacqueline Marques</strong>, 
+              Fundado pelas irmãs <strong>Kelly Ferreira</strong> e <strong>Jacqueline Campos</strong>, 
               o Instituto integra a ciência da mente ao movimento sob uma gestão estratégica de alta performance.
             </p>
           </div>
