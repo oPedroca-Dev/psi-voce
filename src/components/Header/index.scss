@@ -2,13 +2,20 @@
 
 .header {
   position: fixed;
-  top: 0; left: 0; width: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
   height: 110px;
   display: flex;
   align-items: center;
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   background: transparent;
+
+  /* Ajuste telas muito pequenas */
+  @media (max-width: 480px) {
+    height: 95px;
+  }
 
   &--scrolled {
     height: 80px;
@@ -17,14 +24,20 @@
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid rgba(white, 0.3);
 
-    .header__logo img { height: 50px; }
+    .header__logo img {
+      height: 50px;
+    }
+
+    @media (max-width: 480px) {
+      height: 70px;
+    }
   }
 
   &__container {
     width: 100%;
     max-width: 1500px;
     margin: 0 auto;
-    padding: 0 6%;
+    padding: 0 clamp(20px, 6vw, 80px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,28 +45,37 @@
 
   &__logo {
     z-index: 1100;
+
     img {
       height: 70px;
       transition: 0.4s ease;
       filter: drop-shadow(0 2px 5px rgba(0,0,0,0.05));
+
+      @media (max-width: 480px) {
+        height: 60px;
+      }
     }
   }
 
   &__nav {
+
     @media (max-width: 992px) {
       position: fixed;
-      top: 0; right: 0;
-      width: 85%; height: 100vh;
+      top: 0;
+      right: 0;
+      width: min(85%, 420px); /* evita menu gigante em tablets */
+      height: 100svh; /* corrige bug do 100vh no mobile */
       background: #fff;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 140px 10% 60px;
       z-index: 1050;
-      
+      overflow-y: auto;
+
       clip-path: circle(0% at 90% 5%);
       transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-      
+
       &--open {
         clip-path: circle(150% at 90% 5%);
       }
@@ -65,10 +87,15 @@
     gap: 3rem;
     align-items: center;
 
+    @media (max-width: 1200px) {
+      gap: 2rem;
+    }
+
     @media (max-width: 992px) {
       flex-direction: column;
       align-items: flex-start;
       gap: 1.5rem;
+      width: 100%;
     }
   }
 
@@ -82,30 +109,38 @@
     opacity: 0.6;
     transition: 0.3s;
     position: relative;
+    white-space: nowrap; /* evita quebra feia no desktop */
 
     &::after {
       content: '';
       position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 1.5px;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
       background: v.$color-primary;
       transition: 0.3s;
     }
 
-    &:hover, &.active {
+    &:hover,
+    &.active {
       opacity: 1;
       color: v.$color-primary;
-      &::after { width: 100%; }
+
+      &::after {
+        width: 100%;
+      }
     }
 
     @media (max-width: 992px) {
-      font-size: clamp(2.2rem, 10vw, 3.5rem);
+      font-size: clamp(2rem, 9vw, 3.5rem);
       font-family: v.$font-serif;
       text-transform: none;
       letter-spacing: -1px;
       opacity: 0;
       transform: translateY(30px);
-      
+      white-space: normal;
+
       .header--open & {
         opacity: 1;
         transform: translateY(0);
@@ -119,6 +154,10 @@
     align-items: center;
     gap: 20px;
     z-index: 1100;
+
+    @media (max-width: 480px) {
+      gap: 12px;
+    }
   }
 
   &__btn {
@@ -138,7 +177,9 @@
       transform: translateY(-2px);
     }
 
-    @media (max-width: 768px) { display: none; }
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__toggle {
@@ -154,24 +195,48 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: 0.3s;
 
-    @media (max-width: 992px) { 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
+    @media (max-width: 992px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      width: 45px;
+      height: 45px;
     }
   }
 
   &__mobile-footer {
     display: none;
+
     @media (max-width: 992px) {
       display: block;
       border-top: 1px solid rgba(0,0,0,0.05);
       padding-top: 30px;
       opacity: 0;
-      .header--open & { opacity: 1; transition: 1s ease 0.5s; }
-      
-      small { text-transform: uppercase; letter-spacing: 2px; font-size: 0.6rem; color: v.$color-primary; font-weight: 800; display: block; margin-bottom: 5px; }
-      a { color: v.$color-dark; font-size: 1.3rem; text-decoration: none; font-family: v.$font-serif; }
+
+      .header--open & {
+        opacity: 1;
+        transition: 1s ease 0.5s;
+      }
+
+      small {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.6rem;
+        color: v.$color-primary;
+        font-weight: 800;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      a {
+        color: v.$color-dark;
+        font-size: clamp(1.1rem, 4vw, 1.3rem);
+        text-decoration: none;
+        font-family: v.$font-serif;
+      }
     }
   }
 }

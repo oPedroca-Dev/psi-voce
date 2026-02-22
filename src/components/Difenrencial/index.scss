@@ -1,6 +1,5 @@
 @import '../../styles/variables';
 
-
 $purple-deep: #4B2C5E;     
 $purple-primary: #8E6FB8;  
 $purple-mist: #F7F4F9;     
@@ -9,6 +8,14 @@ $purple-mist: #F7F4F9;
   padding: clamp(80px, 10vw, 80px) 8%;
   background-color: #ffffff;
   position: relative;
+
+  @media (max-width: 1024px) {
+    padding: 80px 6%;
+  }
+
+  @media (max-width: 480px) {
+    padding: 70px 5%;
+  }
 
   &__container {
     max-width: 1400px;
@@ -20,30 +27,7 @@ $purple-mist: #F7F4F9;
 
     @media (max-width: 992px) {
       grid-template-columns: 1fr;
-    }
-  }
-
-  &__overline {
-    display: block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: $purple-primary; 
-    margin-bottom: 24px;
-    font-weight: 700;
-  }
-
-  &__title {
-    font-family: $font-serif;
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
-    color: $purple-deep; 
-    line-height: 1.1;
-    margin-bottom: 40px;
-
-    &--highlight {
-      display: block;
-      font-weight: 300;
-      color: rgba(#9944b3, 0.4);
+      gap: 60px;
     }
   }
 
@@ -54,6 +38,10 @@ $purple-mist: #F7F4F9;
       color: rgba($purple-deep, 0.7);
       margin-bottom: 25px;
       font-weight: 300;
+
+      @media (max-width: 480px) {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -63,21 +51,27 @@ $purple-mist: #F7F4F9;
     margin-top: 40px;
     padding-top: 40px;
     border-top: 1px solid rgba($purple-primary, 0.15);
+    flex-wrap: wrap;
+
+    @media (max-width: 600px) {
+      gap: 30px;
+    }
 
     .concept__stat-item {
+      @media (max-width: 600px) {
+        flex: 1 1 120px;
+      }
+
       .number {
         display: block;
         font-size: 2.2rem;
         font-family: $font-serif;
         color: $purple-primary;
         margin-bottom: 8px;
-      }
-      p {
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        color: rgba($purple-deep, 0.6);
-        font-weight: 700;
+
+        @media (max-width: 480px) {
+          font-size: 1.9rem;
+        }
       }
     }
   }
@@ -85,13 +79,25 @@ $purple-mist: #F7F4F9;
   &__visual {
     position: relative;
     padding: 20px;
+
+    @media (max-width: 600px) {
+      padding: 0;
+    }
   }
 
   &__image-wrapper {
     width: 100%;
     height: clamp(400px, 60vh, 600px);
     overflow: hidden;
-    border: 1px solid $purple-mist; 
+    border: 1px solid $purple-mist;
+
+    @media (max-width: 768px) {
+      height: 450px;
+    }
+
+    @media (max-width: 480px) {
+      height: 350px;
+    }
 
     img {
       width: 100%;
@@ -99,8 +105,10 @@ $purple-mist: #F7F4F9;
       object-fit: cover;
       filter: saturate(0.8);
       transition: transform 1.2s ease;
-      
-      &:hover { transform: scale(1.03); }
+
+      &:hover {
+        transform: scale(1.03);
+      }
     }
   }
 
@@ -108,7 +116,7 @@ $purple-mist: #F7F4F9;
     position: absolute;
     bottom: 0;
     left: -40px;
-    background: $purple-mist; 
+    background: $purple-mist;
     padding: 45px;
     max-width: 320px;
     border: 1px solid rgba($purple-primary, 0.1);
@@ -120,19 +128,14 @@ $purple-mist: #F7F4F9;
       max-width: 100%;
     }
 
-    h4 {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: $purple-deep;
-      margin-bottom: 12px;
-      font-weight: 800;
+    @media (max-width: 480px) {
+      padding: 30px;
     }
 
     p {
-      font-size: 0.9rem;
-      color: rgba($purple-deep, 0.6);
-      line-height: 1.6;
+      @media (max-width: 480px) {
+        font-size: 0.85rem;
+      }
     }
   }
 }

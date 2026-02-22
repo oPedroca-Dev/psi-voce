@@ -6,6 +6,14 @@
   position: relative;
   overflow: hidden;
 
+  @media (max-width: 1024px) {
+    padding: 80px 6%;
+  }
+
+  @media (max-width: 480px) {
+    padding: 70px 5%;
+  }
+
   &__watermark {
     position: absolute;
     top: 50%;
@@ -17,6 +25,14 @@
     white-space: nowrap;
     pointer-events: none;
     z-index: 1;
+
+    @media (max-width: 1024px) {
+      font-size: 8rem;
+    }
+
+    @media (max-width: 768px) {
+      display: none; /* evita quebrar layout mobile */
+    }
   }
 
   &__container {
@@ -31,35 +47,32 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 120px;
-    
-    @media (max-width: 1100px) { flex-direction: column; gap: 40px; }
 
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: v.$color-primary;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 0.75rem;
-      margin-bottom: 25px;
-    }
-
-    .main-title {
-      font-family: v.$font-serif;
-      font-size: clamp(3rem, 5vw, 4.8rem);
-      line-height: 1;
-      color: v.$color-dark;
-      letter-spacing: -2px;
-      strong { font-weight: 400; color: v.$color-primary; font-style: italic; }
+    @media (max-width: 1100px) {
+      flex-direction: column;
+      gap: 40px;
+      margin-bottom: 80px;
     }
 
     .info-area {
       max-width: 420px;
       padding-top: 100px;
-      .lead-text { font-size: 1.2rem; line-height: 1.8; color: #666; font-weight: 300; }
-      strong { color: v.$color-dark; font-weight: 600; }
+
+      @media (max-width: 1100px) {
+        padding-top: 0;
+        max-width: 100%;
+      }
+
+      .lead-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #666;
+        font-weight: 300;
+
+        @media (max-width: 480px) {
+          font-size: 1.05rem;
+        }
+      }
     }
   }
 
@@ -69,20 +82,33 @@
     gap: 100px;
     align-items: center;
 
-    @media (max-width: 1024px) { grid-template-columns: 1fr; }
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
   }
 
   .visual-column {
+
     .image-reveal {
       position: relative;
-      img { 
-        width: 100%; 
-        height: 700px; 
-        object-fit: cover; 
+
+      img {
+        width: 100%;
+        height: 700px;
+        object-fit: cover;
         border-radius: 2px;
         filter: contrast(1.05) brightness(1.02);
+
+        @media (max-width: 1024px) {
+          height: 500px;
+        }
+
+        @media (max-width: 600px) {
+          height: 380px;
+        }
       }
-      
+
       .stat-overlay {
         position: absolute;
         bottom: 40px;
@@ -90,38 +116,73 @@
         background: #8c4f9f;
         color: #fff;
         padding: 60px 50px;
-        
-        .number { display: block; font-family: v.$font-serif; font-size: 4rem; line-height: 1; margin-bottom: 10px; }
-        .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; white-space: nowrap; }
+
+        @media (max-width: 1024px) {
+          left: 20px;
+        }
+
+        @media (max-width: 600px) {
+          position: relative;
+          left: 0;
+          bottom: 0;
+          margin-top: -40px;
+          padding: 40px 30px;
+        }
+
+        .number {
+          display: block;
+          font-family: v.$font-serif;
+          font-size: 4rem;
+          line-height: 1;
+          margin-bottom: 10px;
+
+          @media (max-width: 600px) {
+            font-size: 3rem;
+          }
+        }
+
+        .label {
+          font-size: 0.7rem;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          white-space: nowrap;
+        }
       }
-    }
-    .visual-caption {
-      margin-top: 30px;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #bbb;
     }
   }
 
   .content-column {
-    .section-label { color: v.$color-primary; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px; }
-    h3 { font-family: v.$font-serif; font-size: 2.8rem; margin-bottom: 30px; line-height: 1.2; }
-    p { font-size: 1.15rem; color: #555; line-height: 1.8; margin-bottom: 40px; }
+
+    h3 {
+      font-family: v.$font-serif;
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      line-height: 1.2;
+
+      @media (max-width: 600px) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: 1.15rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 40px;
+
+      @media (max-width: 480px) {
+        font-size: 1.05rem;
+      }
+    }
 
     .tags-container {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 60px;
-      .tag-item {
-        padding: 6px 20px;
-        border: 1px solid #eee;
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #888;
+
+      @media (max-width: 480px) {
+        margin-bottom: 40px;
       }
     }
 
@@ -130,7 +191,22 @@
       padding: 40px;
       border-left: 1px solid v.$color-primary;
       margin-bottom: 60px;
-      p { font-family: v.$font-serif; font-style: italic; font-size: 1.5rem; color: v.$color-dark; margin: 0; }
+
+      @media (max-width: 600px) {
+        padding: 25px;
+      }
+
+      p {
+        font-family: v.$font-serif;
+        font-style: italic;
+        font-size: 1.5rem;
+        color: v.$color-dark;
+        margin: 0;
+
+        @media (max-width: 600px) {
+          font-size: 1.2rem;
+        }
+      }
     }
 
     .cta-button {
@@ -146,8 +222,17 @@
       font-size: 0.85rem;
       letter-spacing: 2px;
       transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-      
-      &:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(v.$color-primary, 0.2); }
+
+      @media (max-width: 480px) {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(v.$color-primary, 0.2);
+      }
     }
   }
 
@@ -159,9 +244,25 @@
     border-top: 1px solid #f0f0f0;
     padding-top: 80px;
 
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 50px;
+      padding-top: 60px;
+    }
+
     .footer-item {
-      .label { color: v.$color-primary; font-weight: 800; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 3px; }
-      p { font-size: 1.1rem; color: #666; margin-top: 20px; max-width: 380px; line-height: 1.6; }
+      p {
+        font-size: 1.1rem;
+        color: #666;
+        margin-top: 20px;
+        max-width: 380px;
+        line-height: 1.6;
+
+        @media (max-width: 480px) {
+          font-size: 1rem;
+          max-width: 100%;
+        }
+      }
     }
   }
 }

@@ -8,7 +8,7 @@ $font-serif: v.$font-serif;
 .footer {
   background-color: $p-dark;
   color: white;
-  padding: 120px 6% 0;
+  padding: clamp(80px, 10vw, 120px) 6% 0;
   position: relative;
   z-index: 10;
   border-top: 4px solid $p-primary;
@@ -17,9 +17,9 @@ $font-serif: v.$font-serif;
     max-width: 1300px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.5fr 0.8fr 1.2fr;
-    gap: 100px;
-    padding-bottom: 80px;
+    grid-template-columns: minmax(280px, 1.5fr) minmax(200px, 0.8fr) minmax(260px, 1.2fr);
+    gap: clamp(50px, 6vw, 100px);
+    padding-bottom: clamp(60px, 6vw, 80px);
     position: relative;
 
     @media (max-width: 1024px) {
@@ -42,19 +42,27 @@ $font-serif: v.$font-serif;
     margin-bottom: 35px;
     font-weight: 300;
     max-width: 350px;
-    @media (max-width: 1024px) { margin: 0 auto 30px; }
+
+    @media (max-width: 1024px) {
+      margin: 0 auto 30px;
+    }
   }
 
   &__social {
     display: flex;
     gap: 25px;
-    @media (max-width: 1024px) { justify-content: center; }
+    flex-wrap: wrap;
+
+    @media (max-width: 1024px) {
+      justify-content: center;
+    }
 
     a {
       color: white;
       font-size: 1.3rem;
       transition: v.$transition;
       opacity: 0.5;
+
       &:hover {
         color: $p-primary;
         opacity: 1;
@@ -79,7 +87,11 @@ $font-serif: v.$font-serif;
       width: 30px;
       height: 2px;
       background: $p-primary;
-      @media (max-width: 1024px) { left: 50%; transform: translateX(-50%); }
+
+      @media (max-width: 1024px) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
   }
 
@@ -96,11 +108,15 @@ $font-serif: v.$font-serif;
       text-transform: uppercase;
       letter-spacing: 2px;
       transition: v.$transition;
-      
+
       &:hover {
         color: $p-primary;
         padding-left: 10px;
       }
+    }
+
+    @media (max-width: 1024px) {
+      align-items: center;
     }
   }
 
@@ -116,8 +132,11 @@ $font-serif: v.$font-serif;
       align-items: flex-start;
       color: rgba(white, 0.5);
       font-weight: 300;
+      min-width: 0;
 
-      @media (max-width: 1024px) { justify-content: center; }
+      @media (max-width: 1024px) {
+        justify-content: center;
+      }
 
       svg {
         color: $p-primary;
@@ -147,13 +166,16 @@ $font-serif: v.$font-serif;
       border-color: $p-primary;
     }
 
-    @media (max-width: 1024px) { position: static; margin: 40px auto 0; }
+    @media (max-width: 1024px) {
+      position: static;
+      margin: 40px auto 0;
+    }
   }
 
   &__bottom {
     border-top: 1px solid rgba(white, 0.05);
-    padding: 40px 0;
-    
+    padding: clamp(30px, 4vw, 40px) 0;
+
     &-container {
       max-width: 1300px;
       margin: 0 auto;
@@ -163,14 +185,18 @@ $font-serif: v.$font-serif;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 2px;
+      gap: 20px;
+      flex-wrap: wrap;
 
       @media (max-width: 768px) {
         flex-direction: column;
-        gap: 20px;
         text-align: center;
       }
 
-      span { color: rgba(white, 0.6); font-weight: 700; }
+      span {
+        color: rgba(white, 0.6);
+        font-weight: 700;
+      }
     }
   }
 }

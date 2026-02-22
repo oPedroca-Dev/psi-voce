@@ -1,13 +1,19 @@
 @use '../../styles/variables' as v;
 
 .hero-statement {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background-color: #fff;
   position: relative;
   margin-top: 50px;
   overflow: hidden;
+
+  /* Corrige problema de altura no mobile */
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding: 100px 0 80px;
+  }
 
   &__container {
     width: 100%;
@@ -17,8 +23,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 80vh; 
+    min-height: 80vh;
     z-index: 5;
+
+    @media (max-width: 768px) {
+      min-height: auto;
+      gap: 60px;
+    }
   }
 
   &__top {
@@ -27,6 +38,7 @@
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     padding-bottom: 20px;
+    flex-wrap: wrap;
 
     span {
       font-size: 0.7rem;
@@ -35,18 +47,35 @@
       font-weight: 700;
       color: #bbb;
     }
+
+    @media (max-width: 480px) {
+      gap: 10px;
+    }
   }
 
   &__main {
     margin: 80px 0;
-    
+
+    @media (max-width: 768px) {
+      margin: 50px 0;
+    }
+
+    @media (max-width: 480px) {
+      margin: 40px 0;
+    }
+
     .hero-statement__title {
       font-family: v.$font-serif;
-      font-size: clamp(3rem, 7vw, 6.5rem);
+      font-size: clamp(2.2rem, 7vw, 6.5rem);
       color: v.$color-dark;
       line-height: 1;
       letter-spacing: -3px;
       max-width: 1100px;
+
+      @media (max-width: 480px) {
+        letter-spacing: -1.5px;
+        line-height: 1.1;
+      }
 
       span {
         color: v.$color-primary;
@@ -62,7 +91,11 @@
     gap: 100px;
     align-items: flex-end;
 
-    @media (max-width: 900px) {
+    @media (max-width: 992px) {
+      gap: 60px;
+    }
+
+    @media (max-width: 768px) {
       grid-template-columns: 1fr;
       gap: 50px;
     }
@@ -75,7 +108,12 @@
       color: #666;
       font-weight: 300;
       margin-bottom: 10px;
+
+      @media (max-width: 480px) {
+        font-size: 1.05rem;
+      }
     }
+
     cite {
       font-size: 0.8rem;
       font-style: normal;
@@ -92,7 +130,9 @@
     align-items: flex-end;
     gap: 30px;
 
-    @media (max-width: 900px) { align-items: flex-start; }
+    @media (max-width: 768px) {
+      align-items: flex-start;
+    }
 
     .btn-cta {
       background: #9944b3;
@@ -104,7 +144,15 @@
       letter-spacing: 2px;
       font-size: 0.9rem;
       transition: 0.4s ease;
-      
+      white-space: nowrap;
+
+      @media (max-width: 480px) {
+        white-space: normal;
+        width: 100%;
+        text-align: center;
+        padding: 22px;
+      }
+
       &:hover {
         background: v.$color-primary;
         transform: translateY(-5px);
@@ -119,8 +167,14 @@
       color: #999;
       text-transform: uppercase;
       letter-spacing: 2px;
-      
-      .dot { width: 4px; height: 4px; background: v.$color-primary; border-radius: 50%; }
+      flex-wrap: wrap;
+
+      .dot {
+        width: 4px;
+        height: 4px;
+        background: v.$color-primary;
+        border-radius: 50%;
+      }
     }
   }
 
@@ -132,5 +186,10 @@
     height: 60%;
     background: radial-gradient(circle, rgba(v.$color-primary, 0.03) 0%, transparent 70%);
     z-index: 1;
+
+    @media (max-width: 768px) {
+      width: 90%;
+      height: 90%;
+    }
   }
 }

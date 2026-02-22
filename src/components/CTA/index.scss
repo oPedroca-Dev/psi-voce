@@ -15,10 +15,11 @@ $font-serif: v.$font-serif;
   }
 
   &__box {
-    background: #2b0835; 
-    padding: clamp(60px, 8vw, 120px) 40px;
+    background: #2b0835;
+    padding: clamp(60px, 8vw, 120px) clamp(30px, 5vw, 40px);
     position: relative;
     overflow: hidden;
+    isolation: isolate; // evita bugs de z-index com blur
     
     clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
     
@@ -35,19 +36,20 @@ $font-serif: v.$font-serif;
     filter: blur(80px);
     pointer-events: none;
     border-radius: 50%;
+    will-change: transform;
 
     &--1 {
-      width: 500px;
-      height: 500px;
-      top: -250px;
-      right: -100px;
+      width: clamp(350px, 40vw, 500px);
+      height: clamp(350px, 40vw, 500px);
+      top: -30%;
+      right: -10%;
     }
 
     &--2 {
-      width: 400px;
-      height: 400px;
-      bottom: -200px;
-      left: -100px;
+      width: clamp(300px, 35vw, 400px);
+      height: clamp(300px, 35vw, 400px);
+      bottom: -25%;
+      left: -10%;
     }
   }
 
@@ -56,6 +58,7 @@ $font-serif: v.$font-serif;
     z-index: 2;
     text-align: center;
     color: white;
+    max-width: 100%;
   }
 
   &__badge {
@@ -71,7 +74,7 @@ $font-serif: v.$font-serif;
   &__title {
     font-family: $font-serif;
     font-size: clamp(2.2rem, 5vw, 4.5rem);
-    margin-bottom: 30px;
+    margin-bottom: clamp(20px, 3vw, 30px);
     line-height: 1;
 
     span {
@@ -83,7 +86,7 @@ $font-serif: v.$font-serif;
 
   &__text {
     font-size: clamp(1.1rem, 1.5vw, 1.25rem);
-    margin-bottom: 50px;
+    margin-bottom: clamp(35px, 5vw, 50px);
     opacity: 0.8;
     font-weight: 300;
     max-width: 750px;
@@ -96,18 +99,17 @@ $font-serif: v.$font-serif;
     display: inline-flex;
     align-items: center;
     gap: 15px;
-    background: $p-primary; 
+    background: $p-primary;
     color: white;
-    padding: 22px 50px;
+    padding: clamp(18px, 3vw, 22px) clamp(35px, 6vw, 50px);
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 3px;
     transition: v.$transition;
-    
-    // Botão com corte reto (estilo luxo)
     border: 1px solid transparent;
+    white-space: nowrap;
 
     svg {
       font-size: 1.3rem;

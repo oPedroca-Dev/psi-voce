@@ -13,8 +13,8 @@ $font-serif: v.$font-serif;
     max-width: 1300px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
+    grid-template-columns: minmax(320px, 1fr) minmax(0, 1.2fr);
+    gap: clamp(40px, 6vw, 80px);
     align-items: center;
 
     @media (max-width: 1100px) {
@@ -38,33 +38,39 @@ $font-serif: v.$font-serif;
     color: $p-dark;
     line-height: 1.1;
     margin-bottom: 25px;
-    span { font-weight: 300; color: #9944b3 }
+
+    span {
+      font-weight: 300;
+      color: #9944b3;
+    }
   }
 
   &__subtitle {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
     color: rgba($p-dark, 0.6);
     font-weight: 300;
     max-width: 400px;
-    margin-bottom: 50px;
+    margin-bottom: clamp(35px, 5vw, 50px);
   }
 
   &__details {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    margin-bottom: 60px;
+    gap: clamp(25px, 4vw, 40px);
+    margin-bottom: clamp(40px, 6vw, 60px);
   }
 
   &__item {
     display: flex;
     gap: 20px;
     align-items: flex-start;
-    
+    min-width: 0;
+
     .location__icon {
       font-size: 1.4rem;
       color: $p-primary;
       margin-top: 3px;
+      flex-shrink: 0;
     }
 
     h4 {
@@ -77,9 +83,10 @@ $font-serif: v.$font-serif;
 
     p {
       color: $p-dark;
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
       font-weight: 400;
       line-height: 1.5;
+      word-break: break-word;
     }
   }
 
@@ -96,6 +103,7 @@ $font-serif: v.$font-serif;
     padding-bottom: 5px;
     border-bottom: 2px solid $p-primary;
     transition: v.$transition;
+    white-space: nowrap;
 
     &:hover {
       color: $p-primary;
@@ -105,9 +113,11 @@ $font-serif: v.$font-serif;
 
   &__visual {
     position: relative;
-    height: 650px;
-    
-    @media (max-width: 768px) { height: 450px; }
+    height: clamp(450px, 50vw, 650px);
+
+    @media (max-width: 768px) {
+      height: 450px;
+    }
   }
 
   &__map-frame {
@@ -119,9 +129,13 @@ $font-serif: v.$font-serif;
     border: 1px solid rgba($p-dark, 0.1);
 
     iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
       filter: grayscale(1) contrast(1.2) opacity(0.8);
       transition: v.$transition;
-      
+      will-change: filter;
+
       &:hover {
         filter: grayscale(0) contrast(1);
         opacity: 1;
@@ -131,10 +145,10 @@ $font-serif: v.$font-serif;
 
   &__map-overlay {
     position: absolute;
-    top: 30px;
-    left: 30px;
-    right: -30px;
-    bottom: -30px;
+    top: clamp(15px, 3vw, 30px);
+    left: clamp(15px, 3vw, 30px);
+    right: clamp(-15px, -3vw, -30px);
+    bottom: clamp(-15px, -3vw, -30px);
     background: $p-cream;
     z-index: 1;
   }
